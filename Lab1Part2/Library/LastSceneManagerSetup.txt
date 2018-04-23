@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Assignment1_files/CS135MP1_2.unity
+  isLoaded: 1
+  isActive: 1
