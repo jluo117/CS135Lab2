@@ -6,7 +6,7 @@ public class LightGameScript : MonoBehaviour {
     public List<GameObject> boxColliders;
     public List<GameObject> lights;
     public GameObject textScore;
-    public static float DEFAULT_COUNTDOWN = 5.0f;
+    public static float DEFAULT_COUNTDOWN = 3.0f;
     public float countdown = DEFAULT_COUNTDOWN;
     public int curLight = 0;
     public int score = 0;
@@ -49,6 +49,7 @@ public class LightGameScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        lightLogic();
         OVRInput.Update();
         OVRInput.FixedUpdate();
         if (OVRInput.GetDown(OVRInput.Button.Two))
