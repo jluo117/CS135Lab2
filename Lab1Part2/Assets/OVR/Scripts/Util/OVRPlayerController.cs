@@ -62,7 +62,7 @@ public class OVRPlayerController : MonoBehaviour
 	/// The player will rotate in fixed steps if Snap Rotation is enabled.
 	/// </summary>
 	[Tooltip("The player will rotate in fixed steps if Snap Rotation is enabled.")]
-	public bool SnapRotation = true;
+	public bool SnapRotation = false;
 
 	/// <summary>
 	/// How many fixed speeds to use with linear movement? 0=linear control

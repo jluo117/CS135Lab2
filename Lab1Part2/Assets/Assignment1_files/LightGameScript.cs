@@ -36,6 +36,7 @@ public class LightGameScript : MonoBehaviour {
         {
             lights[i].GetComponent<Light>().enabled = false; 
         }
+        setUpNextLight();
 	}
 
     void lightLogic()
@@ -52,19 +53,28 @@ public class LightGameScript : MonoBehaviour {
         lightLogic();
         OVRInput.Update();
         OVRInput.FixedUpdate();
-        if (OVRInput.GetDown(OVRInput.Button.Two))
+        if (OVRInput.Get(OVRInput.Button.Two))
         {
+            print("quit");
             if (!Application.isEditor)
             {
                 Application.Quit();
             }
         }
-        if (OVRInput.GetDown(OVRInput.Touch.One)){
+        if ((OVRInput.Get(OVRInput.Button.One)) || (Input.GetKeyDown("b")))
+        {
+           
             if (boxColliders[curLight].GetComponent<LightColliderChecker>().getIsColliding())
             {
+               // print("score");
                 setUpNextLight();
                 score++;
                 textScore.GetComponent<UnityEngine.UI.Text>().text = score.ToString();
+                print(score);
+            }
+            else
+            {
+                //print("working");
             }
         }
         
