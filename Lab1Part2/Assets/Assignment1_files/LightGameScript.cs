@@ -61,22 +61,21 @@ public class LightGameScript : MonoBehaviour {
                 Application.Quit();
             }
         }
-        if ((OVRInput.Get(OVRInput.Button.One)) || (Input.GetKeyDown("b")))
-        {
+        
            
             if (boxColliders[curLight].GetComponent<LightColliderChecker>().getIsColliding())
             {
-               // print("score");
+                if ((OVRInput.Get(OVRInput.Button.One)) || (Input.GetKeyDown("f")))
+                {
+                // print("score");
                 setUpNextLight();
                 score++;
                 textScore.GetComponent<UnityEngine.UI.Text>().text = score.ToString();
                 print(score);
+                }
             }
-            else
-            {
-                //print("working");
-            }
-        }
+           
+        
         
     }
 }
