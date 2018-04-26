@@ -39,18 +39,23 @@ public class LightGameScript : MonoBehaviour {
         setUpNextLight();
 	}
 
-    void lightLogic()
+    bool lightLogic()
     {
         countdown -= Time.deltaTime;
         if (countdown <= 0.0f)
         {
             setUpNextLight();
+            return true;
         }
+        return false;
     }
     // Update is called once per frame
     void Update()
     {
-        lightLogic();
+        if (lightLogic())
+        {
+            return;
+        }
         OVRInput.Update();
         OVRInput.FixedUpdate();
         if (OVRInput.Get(OVRInput.Button.Two))
